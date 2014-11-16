@@ -10,7 +10,7 @@ function ClassA() {
 function ClassA(sColor) {
     this.color = sColor;
     this.sayColor = function () {
-    	console.log(this.color);
+        console.log(this.color);
     };
 }
 
@@ -22,7 +22,7 @@ function ClassB(sColor, sName) {
 	ClassA.call(this, sColor);	//加上这句就是混合类型继承方式
     this.name = sName;
     this.sayName = function () {
-    	console.log(this.name);
+        console.log(this.name);
     };
 }
 ClassB.prototype = new ClassA();
@@ -67,3 +67,5 @@ console.log(objB instanceof ClassB);	//输出 "true"
 console.log(objC instanceof ClassA);	//输出 "true"
 console.log(objC instanceof ClassB);	//输出 "true"
 console.log(objC instanceof ClassC);	//输出 "true"
+
+

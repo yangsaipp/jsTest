@@ -21,7 +21,9 @@
  		// 如果当前处于实例化类的阶段，则调用init原型函数
 
  		if (!initializing) {
- 			
+ 			if(baseClass) {
+ 				this.base = baseClass.prototype;
+ 			}
  			this.init.apply(this, arguments);
 
  		}
@@ -85,7 +87,7 @@
  		// 调用父类的原型函数init，注意使用apply函数修改init的this指向
 
  		this.base.init.apply(this, [name]);
-
+ 		this.name = name;
  		this.employeeID = employeeID;
 
  	},
@@ -100,7 +102,7 @@
 
  		// 调用父类的原型函数getName
 
- 		return "Employee name: " + this.base.getName.apply(this);
+ 		return "Employee name: " + name;
 
  	}
 
